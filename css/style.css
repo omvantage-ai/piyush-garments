@@ -1,0 +1,11 @@
+/* पूरे पेज का बैकग्राउंड और टेक्स्ट कलर सेट करना */
+body {
+    background-color: #0f172a;
+    color: #ffffff;
+    text-align: center;
+    padding-top: 50px;
+}
+
+header h1 {
+    color: #ff0055; /* नियॉन रेड कलर */
+}
