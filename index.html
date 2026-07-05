@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piyush Garments | माखन नगर - बेस्ट क्लॉथिंग स्टोर</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #0b0f19;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* 1. TOP OFFER BANNER */
+        .offer-banner {
+            background: linear-gradient(90deg, #ff0055, #ff5500);
+            color: #fff;
+            text-align: center;
+            padding: 10px 20px;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            animation: pulse 1.5s infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.9; }
+            100% { opacity: 1; transform: scale(1.01); }
+        }
+
+        /* NAVBAR */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background-color: #111827;
+            border-bottom: 2px solid #ff0055;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-text {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #ff0055;
+            text-transform: uppercase;
+        }
+
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 20px; }
+        nav ul li a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover { color: #ff0055; }
+
+        /* HERO SECTION */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(rgba(11, 15, 25, 0.8), #0b0f19), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .hero h1 span { color: #ff0055; }
+        .hero p { font-size: 1.2rem; color: #cbd5e1; max-width: 600px; margin: 0 auto 30px; }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 35px;
+            background: #ff0055;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(255, 0, 85, 0.4);
+            transition: transform 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover { transform: translateY(-3px); }
+
+        .section-title {
+            font-size: 2.2rem;
+            text-align: center;
+            margin: 50px 0 30px;
+            color: #fff;
+        }
+        .section-title span { color: #ff0055; }
+
+        /* 👕 🖼️ CATEGORIES & GALLERY */
+        .categories-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 0 5%;
+        }
+
+        .category-card {
+            width: 240px;
+            background: #111827;
+            border: 1px solid #1e293b;
+            border-radius: 15px;
+            padding: 25px 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        .category-card:hover {
+            transform: translateY(-5px);
+            border-color: #ff0055;
+        }
+        .cat-icon { font-size: 2.5rem; margin-bottom: 10px; display: block; }
+        .category-card h3 { color: #fff; margin-bottom: 8px; }
+        .category-card p { color: #94a3b8; font-size: 0.9rem; }
+
+        /* 🛍️ WEEKLY MARKET LOCATION TABLE */
+        .market-section { padding: 40px 5%; background: #111827; margin-top: 50px; }
+        .table-container { max-width: 800px; margin: 0 auto; overflow-x: auto; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #0b0f19;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        th, td { padding: 15px; text-align: left; border-bottom: 1px solid #1e293b; }
+        th { background-color: #ff0055; color: white; font-weight: 600; }
+        tr:hover { background: rgba(255, 0, 85, 0.05); }
+        .day-badge { background: #1e293b; padding: 4px 10px; border-radius: 6px; font-size: 0.85rem; color: #ff0055; font-weight: bold; }
+
+        /* 📦 ONLINE ORDER FORM */
+        .order-section { padding: 50px 5%; }
+        .order-form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: #111827;
+            padding: 35px;
+            border-radius: 20px;
+            border: 1px solid #1e293b;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        .form-group { margin-bottom: 20px; text-align: left; }
+        .form-group label { display: block; margin-bottom: 8px; color: #cbd5e1; font-size: 0.95rem; }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            background: #0b0f19;
+            border: 1px solid #1e293b;
+            border-radius: 8px;
+            color: #fff;
+            outline: none;
+        }
+        .form-group input:focus, .form-group select:focus { border-color: #ff0055; }
+
+        /* 📍 CALL & MAP DETAILS */
+        .contact-section { padding: 50px 5%; background: #111827; text-align: center; }
+        .contact-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .contact-details { flex: 1; min-width: 280px; text-align: left; padding: 20px; }
+        .contact-details p { margin-bottom: 15px; font-size: 1.1rem; }
+        .contact-details a { color: #ff0055; text-decoration: none; font-weight: 600; }
+        .map-box { flex: 1; min-width: 300px; border-radius: 15px; overflow: hidden; border: 2px solid #ff0055; }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #0b0f19;
+            border-top: 1px solid #1e293b;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 10px; }
+            nav ul li { margin: 0 10px; }
+            .hero h1 { font-size: 2rem; }
+            .contact-grid { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 💰 Offer Banner -->
+    <div class="offer-banner">
+        🔥 धमाका सेल: सीधे होलसेल रेट पर लेटेस्ट जींस और शर्ट्स उपलब्ध! 🔥
+    </div>
+
+    <!-- Navbar -->
+    <header>
+        <div class="logo-text">Piyush Garments</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#markets">Market Days</a></li>
+                <li><a href="#order">Order Now</a></li>
+                <li><a href="#contact">Find Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>पीयूष गारमेंट्स, <span>माखन नगर</span></h1>
+        <p>शानदार वैरायटी, बेहतरीन रेट और ऑफर्स। हमारे यहाँ मिलते हैं लेटेस्ट फैशन के जींस, शर्ट, टी-शर्ट और लोअर।</p>
+        <a href="#order" class="btn">ऑनलाइन आर्डर करें</a>
+    </section>
+
+    <!-- 👕 Categories & Gallery -->
+    <section id="categories">
+        <h2 class="section-title">Shop By <span>Categories</span></h2>
+        <div class="categories-container">
+            <div class="category-card">
+                <span class="cat-icon">👖</span>
+                <h3>Jeans</h3>
+                <p>प्रीमियम क्वालिटी डेनिम जींस - फिटिंग और लुक में बेस्ट।</p>
+            </div>
+            <div class="category-card">
+                <span class="cat-icon">👔</span>
+                <h3>Shirts</h3>
+                <p>RFD, प्रिंटेड और फॉर्मल शर्ट्स का बेहतरीन कलेक्शन।</p>
+            </div>
+            <div class="category-card">
+                <span class="cat-icon">👕</span>
+                <h3>T-Shirts</h3>
+                <p>ट्रेंडी और आरामदायक समर और कैजुअल टी-शर्ट्स।</p>
+            </div>
+            <div class="category-card">
+                <span class="cat-icon">🩳</span>
+                <h3>Lowers</h3>
+                <p>डेली यूज़ और स्पोर्ट्स के लिए मजबूत और कम्फर्टेबल लोअर।</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🛍️ Weekly Market Locations -->
+    <section class="market-section" id="markets">
+        <h2 class="section-title">साप्ताहिक बाज़ार <span>का शेड्यूल</span></h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>दिन (Day)</th>
+                        <th>बाज़ार लोकेशन (Market Location)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><span class="day-badge">सोमवार</span></td><td>शाहगंज बाज़ार</td></tr>
+                    <tr><td><span class="day-badge">मंगलवार</span></td><td>Babai (माखन नगर) बाज़ार</td></tr>
+                    <tr><td><span class="day-badge">बुधवार</span></td><td>सांगाखेड़ा खुर्द</td></tr>
+                    <tr><td><span class="day-badge">गुरुवार</span></td><td>सांगाखेड़ा कलां</td></tr>
+                    <tr><td><span class="day-badge">शुक्रवार</span></td><td>बकतरा / आरी</td></tr>
+                    <tr><td><span class="day-badge">शनिवार</span></td><td>गनेरा (Ganera)</td></tr>
+                    <tr><td><span class="day-badge">रविवार</span></td><td>मोहासा इंडस्ट्रियल एरिया</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 📦 Online Order Form -->
+    <section class="order-section" id="order">
+        <h2 class="section-title">Direct <span>WhatsApp Order</span></h2>
+        <div class="order-form-container">
+            <form id="whatsappForm" onsubmit="sendOrder(event)">
+                <div class="form-group">
+                    <label>आपका नाम (Your Name)</label>
+                    <input type="text" id="custName" placeholder="अपना नाम लिखें" required>
+                </div>
+                <div class="form-group">
+                    <label>कपड़े का प्रकार (Category)</label>
+                    <select id="prodCat" required>
+                        <option value="Jeans">जींस (Jeans)</option>
+                        <option value="Shirt">शर्ट (Shirt)</option>
+                        <option value="T-Shirt">टी-शर्ट (T-Shirt)</option>
+                        <option value="Lower">लोअर (Lower)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>साइज़ (Size)</label>
+                    <select id="prodSize" required>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                        <option value="XXL">XXL</option>
+                        <option value="28">28</option>
+                        <option value="30">30</option>
+                        <option value="32">32</option>
+                        <option value="34">34</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>आप किस बाज़ार में डिलीवरी चाहते हैं?</label>
+                    <select id="marketLoc" required>
+                        <option value="माखन नगर दुकान">माखन नगर (मुख्य दुकान)</option>
+                        <option value="सोमवार - शाहगंज">सोमवार - शाहगंज बाज़ार</option>
+                        <option value="मंगलवार - माखन नगर">मंगलवार - माखन नगर बाज़ार</option>
+                        <option value="बुधवार - सांगाखेड़ा खुर्द">बुधवार - सांगाखेड़ा खुर्द</option>
+                        <option value="गुरुवार - सांगाखेड़ा कलां">गुरुवार - सांगाखेड़ा कलां</option>
+                        <option value="शुक्रवार - बकतरा/आरी">शुक्रवार - बकतरा/आरी</option>
+                        <option value="शनिवार - गनेरा">शनिवार - गनेरा</option>
+                        <option value="रविवार - मोहासा">रविवार - मोहासा एरिया</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn" style="width: 100%; border-radius: 8px;">💬 WhatsApp पर ऑर्डर भेजें</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- 📍 Contact & Google Map Section -->
+    <section class="contact-section" id="contact">
+        <h2 class="section-title">दुकान का <span>पता और संपर्क</span></h2>
+        <div class="contact-grid">
+            <div class="contact-details">
+                <p>📍 <strong>पता:</strong> सरकारी अस्पताल के सामने, माखन नगर, नर्मदापुरम, मध्य प्रदेश</p>
+                <p>📞 <strong>मोबाइल नंबर:</strong> <a href="tel:+918878906237">+91 8878906237</a></p>
+                <p>💬 <strong>WhatsApp:</strong> <a href="https://wa.me/918878906237" target="_blank">चैट शुरू करें</a></p>
+            </div>
+            <!-- Interactive Map Placeholder -->
+            <div class="map-box">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3680.123456789!2d77.8324!3d22.7532!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCbDQ1JzExLjUiTiA3N8KwNDknNTYuNiJF!5e0!3m2!1shi!2sin!4v1672531199999!5m2!1shi!2sin" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Piyush Garments. All Rights Reserved.</p>
+        <p style="font-size: 0.8rem; margin-top: 5px;">Powered by OmVantage AI</p>
+    </footer>
+
+    <!-- Form Script -->
+    <script>
+        function sendOrder(e) {
+            e.preventDefault();
+            const name = document.getElementById('custName').value;
+            const cat = document.getElementById('prodCat').value;
+            const size = document.getElementById('prodSize').value;
+            const market = document.getElementById('marketLoc').value;
+            
+            // Build text message for WhatsApp
+            const text = `जय राम जी की! 🙏%0A*नया ऑर्डर मिला है (Piyush Garments)*%0A%0A*नाम:* ${name}%0A*कपड़ा:* ${cat}%0A*साइज़:* ${size}%0A*डिलीवरी लोकेशन:* ${market}`;
+            
+            // Redirect to official WhatsApp number
+            window.open(`https://wa.me/918878906237?text=${text}`, '_blank');
+        }
+    </script>
+
+</body>
+</html>
