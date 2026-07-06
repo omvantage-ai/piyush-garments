@@ -70,3 +70,22 @@ document.addEventListener("DOMContentLoaded", function() {
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
 }
+// पीयूष गारमेंट्स ऑर्डर मैनेजमेंट सिस्टम
+function sendStoreOrder(event) {
+    event.preventDefault(); // पेज को रीफ्रेश होने से रोकना
+    
+    // फॉर्म से सारा डेटा निकालना
+    const name = document.getElementById('custName').value;
+    const product = document.getElementById('prodCat').value;
+    const size = document.getElementById('prodSize').value;
+    const market = document.getElementById('marketLoc').value;
+    
+    // व्हाट्सएप के लिए सुंदर मैसेज तैयार करना
+    const message = `जय राम जी की! 🙏%0A*पीयूष गारमेंट्स (Piyush Garments) नया ऑर्डर*%0A%0A*ग्राहक का नाम:* ${name}%0A*कपड़ा प्रकार:* ${product}%0A*चुना गया साइज़:* ${size}%0A*डिलीवरी बाज़ार:* ${market}`;
+    
+    // आपके नंबर 8878906237 पर सीधे रीडायरेक्ट करना
+    const whatsappUrl = `https://wa.me/918878906237?text=${message}`;
+    
+    // नए टैब में व्हाट्सएप खोलना
+    window.open(whatsappUrl, '_blank');
+}
