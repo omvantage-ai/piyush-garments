@@ -87,7 +87,54 @@
                 </table>
             </div>
         </section>
-
+        <!-- 📦 Day 5: एडवांस्ड व्हाट्सएप ऑर्डर फॉर्म -->
+        <section class="order-section" id="order">
+            <h2 class="section-title">Direct <span>WhatsApp Order</span></h2>
+            <div class="order-form-container">
+                <form id="tgOrderForm" onsubmit="sendStoreOrder(event)">
+                    <div class="form-group">
+                        <label>आपका नाम (Your Name)</label>
+                        <input type="text" id="custName" placeholder="अपना नाम यहाँ लिखें" required>
+                    </div>
+                    <div class="form-group">
+                        <label>कपड़े का प्रकार (Product Type)</label>
+                        <select id="prodCat" required>
+                            <option value="Premium Jeans">जींस (Jeans)</option>
+                            <option value="Trending Shirt">शर्ट (Shirt)</option>
+                            <option value="Stylish T-Shirt">टी-शर्ट (T-Shirt)</option>
+                            <option value="Comfort Lower">लोअर (Lower)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>साइज़ (Select Size)</label>
+                        <select id="prodSize" required>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>
+                            <option value="XXL">XXL</option>
+                            <option value="30">30</option>
+                            <option value="32">32</option>
+                            <option value="34">34</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>डिलीवरी के लिए बाज़ार चुनें (Select Market)</label>
+                        <select id="marketLoc" required>
+                            <option value="माखन नगर मुख्य दुकान">माखन नगर (मुख्य दुकान)</option>
+                            <option value="सोमवार - शाहगंज">सोमवार - शाहगंज बाज़ार</option>
+                            <option value="मंगलवार - माखन नगर">मंगलवार - माखन नगर बाज़ार</option>
+                            <option value="बुधवार - सांगाखेड़ा खुर्द">बुधवार - सांगाखेड़ा खुर्द</option>
+                            <option value="गुरुवार - सांगाखेड़ा कलां">गुरुवार - सांगाखेड़ा कलां</option>
+                            <option value="शुक्रवार - बकतरा/आरी">शुक्रवार - बकतरा/आरी</option>
+                            <option value="शनिवार - गनेरा">शनिवार - गनेरा</option>
+                            <option value="रविवार - मोहासा">रविवार - मोहासा एरिया</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="order-btn">💬 WhatsApp पर ऑर्डर भेजें</button>
+                </form>
+            </div>
+        </section>
+        
     </main>
 
     <script src="js/script.js"></script>
