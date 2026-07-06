@@ -154,3 +154,85 @@ body {
         font-size: 2rem;
     }
 }
+/* 🛍️ 5. DAY 4: WEEKLY MARKET TABLE DESIGN */
+.market-section {
+    margin-top: 60px;
+    padding: 20px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.section-title span {
+    color: var(--primary-red);
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto; /* मोबाइल पर टेबल बाहर न भागे, इसके लिए स्क्रॉल */
+    border-radius: 16px;
+    border: 1px solid rgba(255, 0, 53, 0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.market-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card-bg);
+    text-align: left;
+}
+
+.market-table th, .market-table td {
+    padding: 18px 20px;
+    border-bottom: 1px solid #1e293b;
+}
+
+.market-table th {
+    background-color: rgba(255, 0, 85, 0.1);
+    color: var(--primary-red);
+    font-weight: 600;
+    font-size: 1rem;
+    border-bottom: 2px solid var(--primary-red);
+}
+
+.market-table tr:last-child td {
+    border-bottom: none;
+}
+
+.market-table tr:hover {
+    background: rgba(0, 229, 255, 0.03); /* नियॉन ब्लू टच होवर पर */
+    transition: var(--transition-smooth);
+}
+
+/* बैज (Badges) की डिजाइन */
+.day-badge {
+    display: inline-block;
+    background: #1e293b;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: var(--neon-blue);
+    font-weight: 600;
+    border: 1px solid rgba(0, 229, 255, 0.2);
+}
+
+.day-badge.day-special {
+    color: var(--primary-red);
+    border-color: rgba(255, 0, 85, 0.3);
+    background: rgba(255, 0, 85, 0.05);
+}
+
+.market-place {
+    font-size: 1rem;
+    color: var(--text-main);
+    font-weight: 400;
+}
+
+.market-place.highlight {
+    font-weight: 600;
+    color: var(--neon-blue);
+}
