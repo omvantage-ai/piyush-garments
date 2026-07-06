@@ -4,24 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Piyush Garments v2.0 | Premium Store</title>
+    
+    <!-- 🔤 1. गूगल फॉन्ट (Poppins) को वेबसाइट से लिंक करना -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!-- मुख्य हेडर -->
-    <header>
-        <h1>Piyush <span>Garments</span></h1>
-        <p style="color: var(--text-muted); margin-top: 10px;">माखन नगर का नंबर 1 क्लॉथिंग स्टोर</p>
+    <!-- 🌐 2. प्रोफेशनल नेविगेशन बार (Menu Bar) -->
+    <header class="navbar">
+        <div class="logo">Piyush <span>Garments</span></div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#markets">Markets</a></li>
+                <li><a href="#order">Order</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- मुख्य कंटेनर जहाँ प्रोडक्ट्स दिखेंगे -->
-    <main class="container">
+    <!-- 👔 मुख्य बैनर (Hero Section) -->
+    <section class="hero-section" id="home">
+        <h1>Welcome to <span>Piyush Garments</span></h1>
+        <p>माखन नगर का नंबर 1 क्लॉथिंग स्टोर - बेस्ट क्वालिटी, होलसेल रेट।</p>
+    </section>
+
+    <!-- 🎴 मुख्य कंटेनर जहाँ प्रोडक्ट्स दिखेंगे -->
+    <main class="container" id="categories">
+        <h2 style="text-align: center; margin-top: 30px; letter-spacing: 1px;">Shop By Categories</h2>
         
-        <h2 style="text-align: center; margin-top: 30px;">Shop By Categories</h2>
-        
-        <!-- रिस्पॉन्सिव ग्रिड सिस्टम -->
         <div class="product-grid">
-            
             <div class="product-card">
                 <span class="icon">👖</span>
                 <h3>Premium Jeans</h3>
@@ -45,11 +59,9 @@
                 <h3>Comfort Lowers</h3>
                 <p>स्पोर्ट्स और रनिंग के लिए सबसे मजबूत और स्ट्रेचेबल लोअर।</p>
             </div>
-
         </div>
     </main>
 
     <script src="js/script.js"></script>
 </body>
 </html>
-
