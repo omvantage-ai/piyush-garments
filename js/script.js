@@ -1,40 +1,30 @@
-// पीयूष गारमेंट्स - डायरेक्ट ऑर्डर सिस्टम
-function sendStoreOrder(event) {
-    if (event) event.preventDefault(); // फॉर्म को रीफ्रेश होने से रोकना
-    
-    try {
-        // इनपुट बॉक्स से वैल्यू निकालना
-        const name = document.getElementById('custName').value;
-        const product = document.getElementById('prodCat').value;
-        const size = document.getElementById('prodSize').value;
-        const market = document.getElementById('marketLoc').value;
-        
-        // अगर कोई फील्ड खाली है तो रोकना
-        if(!name) {
-            alert("कृपया अपना नाम लिखें!");
-            return false;
-        }
-        
-        // व्हाट्सएप के लिए साफ और सुंदर मैसेज
-        const message = `जय राम जी की! 🙏%0A*पीयूष गारमेंट्स (Piyush Garments) नया ऑर्डर*%0A%0A*ग्राहक का नाम:* ${name}%0A*कपड़ा प्रकार:* ${product}%0A*चुना गया साइज़:* ${size}%0A*डिलीवरी बाज़ार:* ${market}`;
-        
-        // डायरेक्ट व्हाट्सएप यूआरएल
-        const whatsappUrl = `https://wa.me/918878906237?text=${message}`;
-        
-        // मोबाइल और ब्राउज़र दोनों पर काम करने के लिए डायरेक्ट लोकेशन चेंज
-        window.location.href = whatsappUrl;
-        
-    } catch (error) {
-        console.error("ऑर्डर भेजने में समस्या आई:", error);
-    }
-    
-    return false;
-}
-
-// यह सुनिश्चित करने के लिए कि फॉर्म सबमिट होने पर हमारा ही फंक्शन चले
+// पीयूष गारमेंट्स - डायरेक्ट ऑर्डर सिस्टम (v2.1 फिक्स्ड)
 document.addEventListener("DOMContentLoaded", function() {
-    const orderForm = document.getElementById('tgOrderForm');
+    const orderForm = document.getElementById('storeOrderForm');
+    
     if (orderForm) {
-        orderForm.onsubmit = sendStoreOrder;
+        orderForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // फॉर्म को डिफ़ॉल्ट रीफ्रेश होने से रोकना
+            
+            // डेटा निकालना
+            const name = document.getElementById('custName').value.trim();
+            const product = document.getElementById('prodCat').value;
+            const size = document.getElementById('prodSize').value;
+            const market = document.getElementById('marketLoc').value;
+            
+            if (!name) {
+                alert("कृपया अपना नाम लिखें!");
+                return;
+            }
+            
+            // व्हाट्सएप टेक्स्ट मैसेज फॉर्मेटिंग
+            const message = `जय राम जी की! 🙏%0A*पीयूष गारमेंट्स (Piyush Garments) नया ऑर्डर*%0A%0A*ग्राहक का नाम:* ${name}%0A*कपड़ा प्रकार:* ${product}%0A*चुना गया साइज़:* ${size}%0A*डिलीवरी बाज़ार:* ${market}`;
+            
+            // व्हाट्सएप लिंक जनरेशन
+            const whatsappUrl = `https://wa.me/918878906237?text=${message}`;
+            
+            // सीधे ब्राउज़र विंडो को रीडायरेक्ट करना (मोबाइल और डेस्कटॉप दोनों के लिए बेस्ट)
+            window.location.href = whatsappUrl;
+        });
     }
 });
