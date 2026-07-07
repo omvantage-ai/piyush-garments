@@ -39,34 +39,6 @@
             <h2 class="section-title">Shop By <span>Categories</span></h2>
             <div class="product-grid">
                 <div class="product-card">
-                    <span class="icon">img</span>
-                    <h3>Premium Jeans</h3>
-                    <p>बेस्ट फिटिंग और शानदार डेनिम फैब्रिक कलेक्शन।</p>
-                </div>
-
-                <div class="product-card">
-                    <span class="icon">img</span>
-                    <h3>Trending Shirts</h3>
-                    <p>RFD, प्रिंटेड और कैजुअल शर्ट्स सीधे होलसेल रेट पर।</p>
-                </div>
-
-                <div class="product-card">
-                    <span class="icon">img</span>
-                    <h3>Stylish T-Shirts</h3>
-                    <p>गर्मियों और डेली वियर के लिए आरामदायक ट्रेंडी लुक्स।</p>
-                </div>
-
-                <div class="product-card">
-                    <span class="icon">img</span>
-                    <h3>Comfort Lowers</h3>
-                    <p>स्पोर्ट्स और रनिंग के लिए सबसे मजबूत और स्ट्रेचेबल लोअर।</p>
-                </div>
-            </div>
-                    <section id="categories">
-            <h2 class="section-title">Shop By <span>Categories</span></h2>
-            <div class="product-grid">
-                
-                <div class="product-card">
                     <img src="images/jeans.jpg" alt="Premium Jeans" class="product-img">
                     <h3>Premium Jeans</h3>
                     <p>बेस्ट फिटिंग और शानदार डेनिम फैब्रिक कलेक्शन।</p>
@@ -89,13 +61,10 @@
                     <h3>Comfort Lowers</h3>
                     <p>स्पोर्ट्स और रनिंग के लिए सबसे मजबूत और स्ट्रेचेबल लोअर।</p>
                 </div>
-                
             </div>
-                    </section>
-            
         </section>
 
-        <!-- 🛍️ Day 4: साप्ताहिक बाज़ार का सेक्शन -->
+        <!-- 🛍️ साप्ताहिक बाज़ार का सेक्शन -->
         <section class="market-section" id="markets">
             <h2 class="section-title">साप्ताहिक बाज़ार <span>का शेड्यूल</span></h2>
             <div class="table-container">
@@ -113,16 +82,18 @@
                         <tr><td><span class="day-badge">गुरुवार</span></td><td class="market-place">सांगाखेड़ा कलां</td></tr>
                         <tr><td><span class="day-badge">शुक्रवार</span></td><td class="market-place">बकतरा / आरी</td></tr>
                         <tr><td><span class="day-badge">शनिवार</span></td><td class="market-place">गनेरा (Ganera)</td></tr>
-                        <tr><td><span class="day-badge">रविवार</span></td><td class="market-place">मोहासा इंडस्ट्रियल एरिया</td></tr>
+                        <tr><td><span class="day-badge">रविवार</span></td><td class="market-place">मोहासा इंडस्ट्रियलエリア</td></tr>
                     </tbody>
                 </table>
             </div>
         </section>
-        <!-- 📦 Day 5: एडवांस्ड व्हाट्सएप ऑर्डर फॉर्म -->
+
+        <!-- 📦 व्हाट्सएप ऑर्डर फॉर्म -->
         <section class="order-section" id="order">
             <h2 class="section-title">Direct <span>WhatsApp Order</span></h2>
             <div class="order-form-container">
-                <form id="tgOrderForm" onsubmit="sendStoreOrder(event)">
+                <!-- ध्यान दें: यहाँ id और button का टाइप बिल्कुल फिक्स कर दिया है -->
+                <form id="storeOrderForm">
                     <div class="form-group">
                         <label>आपका नाम (Your Name)</label>
                         <input type="text" id="custName" placeholder="अपना नाम यहाँ लिखें" required>
@@ -165,7 +136,7 @@
                 </form>
             </div>
         </section>
-        
+
     </main>
 
     <script src="js/script.js"></script>
