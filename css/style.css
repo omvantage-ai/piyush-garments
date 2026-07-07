@@ -236,3 +236,12 @@ body {
     font-weight: 600;
     color: var(--neon-blue);
 }
+/* 🖼️ 7. DAY 6: PRODUCT IMAGE STYLE */
+.product-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* फोटो को बिना खींचे या पिचकाए बॉक्स में फिट करने के लिए */
+    border-radius: 12px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
