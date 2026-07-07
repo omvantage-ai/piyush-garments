@@ -11,6 +11,11 @@
 </head>
 <body>
 
+    <!-- 💰 Day 8: नया आकर्षक ऑफर बैनर -->
+    <div class="top-offer-banner">
+        🔥 विशेष धमाका ऑफर: सीधे होलसेल रेट पर लेटेस्ट कलेक्शन उपलब्ध! 🔥
+    </div>
+
     <!-- 🌐 नेविगेशन बार (Menu Bar) -->
     <header class="navbar">
         <div class="logo">Piyush <span>Garments</span></div>
@@ -35,42 +40,6 @@
     <main class="container">
         
         <!-- Categories Section -->
-                <!-- Categories Section (Updated with Exact File Names) -->
-        <section id="categories">
-            <h2 class="section-title">Shop By <span>Categories</span></h2>
-            <div class="product-grid">
-                
-                <div class="product-card">
-                    <!-- 🖼️ जींस की फोटो (images फोल्डर और .jpg.jpg नाम के साथ) -->
-                    <img src="images/jeans.jpg.jpg" alt="Premium Jeans" class="product-img">
-                    <h3>Premium Jeans</h3>
-                    <p>बेस्ट फिटिंग और शानदार डेनिम फैब्रिक कलेक्शन।</p>
-                </div>
-
-                <div class="product-card">
-                    <!-- 🖼️ शर्ट की फोटो -->
-                    <img src="images/shirt.jpg.jpg" alt="Trending Shirts" class="product-img">
-                    <h3>Trending Shirts</h3>
-                    <p>RFD, प्रिंटेड और कैजुअल शर्ट्स सीधे होलसेल रेट पर।</p>
-                </div>
-
-                <div class="product-card">
-                    <!-- 🖼️ टी-शर्ट की फोटो -->
-                    <img src="images/tshirt.jpg.jpg" alt="Stylish T-Shirts" class="product-img">
-                    <h3>Stylish T-Shirts</h3>
-                    <p>गर्मियों और डेली वियर के लिए आरामदायक ट्रेंडी लुक्स।</p>
-                </div>
-
-                <div class="product-card">
-                    <!-- 🖼️ लोअर की फोटो -->
-                    <img src="images/lower.jpg.jpg" alt="Comfort Lowers" class="product-img">
-                    <h3>Comfort Lowers</h3>
-                    <p>स्पोर्ट्स और रनिंग के लिए सबसे मजबूत और स्ट्रेचेबल लोअर।</p>
-                </div>
-                
-            </div>
-        </section>
-
         <section id="categories">
             <h2 class="section-title">Shop By <span>Categories</span></h2>
             <div class="product-grid">
@@ -118,7 +87,7 @@
                         <tr><td><span class="day-badge">गुरुवार</span></td><td class="market-place">सांगाखेड़ा कलां</td></tr>
                         <tr><td><span class="day-badge">शुक्रवार</span></td><td class="market-place">बकतरा / आरी</td></tr>
                         <tr><td><span class="day-badge">शनिवार</span></td><td class="market-place">गनेरा (Ganera)</td></tr>
-                        <tr><td><span class="day-badge">रविवार</span></td><td class="market-place">मोहासा इंडस्ट्रियलエリア</td></tr>
+                        <tr><td><span class="day-badge">रविवार</span></td><td class="market-place">मोहासा इंडस्ट्रियल एरिया</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -128,7 +97,6 @@
         <section class="order-section" id="order">
             <h2 class="section-title">Direct <span>WhatsApp Order</span></h2>
             <div class="order-form-container">
-                <!-- ध्यान दें: यहाँ id और button का टाइप बिल्कुल फिक्स कर दिया है -->
                 <form id="storeOrderForm">
                     <div class="form-group">
                         <label>आपका नाम (Your Name)</label>
@@ -170,6 +138,22 @@
                     </div>
                     <button type="submit" class="order-btn">💬 WhatsApp पर ऑर्डर भेजें</button>
                 </form>
+            </div>
+        </section>
+
+        <!-- 📍 Day 8: दुकान का पता और गूगल मैप सेक्शन -->
+        <section class="contact-section" id="contact">
+            <h2 class="section-title">दुकान का <span>पता और लोकेशन</span></h2>
+            <div class="contact-grid">
+                <div class="contact-info-box">
+                    <p>🏢 <strong>दुकान का नाम:</strong> पीयूष गारमेंट्स (Piyush Garments)</p>
+                    <p>📍 <strong>पता:</strong> सरकारी अस्पताल के सामने, माखन नगर (बबई), नर्मदापुरम, मध्य प्रदेश</p>
+                    <p>📞 <strong>फ़ोन संपर्क:</strong> <a href="tel:+918878906237" style="color: var(--neon-blue); text-decoration: none;">+91 8878906237</a></p>
+                </div>
+                <div class="map-embed-box">
+                    <!-- लाइव बबई (माखन नगर) मैप आईफ्रेम -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14723.743194017683!2d77.8341648!3d22.7491901!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397dc9b646c0d8db%3A0x66f6fb6a34cd8ff!2sBabai%2C%20Madhya%20Pradesh!5e0!3m2!1shi!2sin!4v1710000000000!5m2!1shi!2sin" width="100%" height="250" style="border:0; border-radius: 12px;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
             </div>
         </section>
 
