@@ -1,4 +1,18 @@
-// पीयूष गारमेंट्स - डायरेक्ट ऑर्डर सिस्टम (v2.1 फिक्स्ड)
+  const firebaseConfig = {
+    apiKey: "AIzaSyDWUF7xHZ7-S-RKxxfYqwgc8JqZ10ryDlM",
+    authDomain: "piyush-garments-v2.firebaseapp.com",
+    projectId: "piyush-garments-v2",
+    storageBucket: "piyush-garments-v2.firebasestorage.app",
+    messagingSenderId: "831822579079",
+    appId: "1:831822579079:web:23cc902c56ee7eadb8bf22",
+    measurementId: "G-P8CVTRGN61"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
+    // पीयूष गारमेंट्स - डायरेक्ट ऑर्डर सिस्टम (v2.1 फिक्स्ड)
 document.addEventListener("DOMContentLoaded", function() {
     const orderForm = document.getElementById('storeOrderForm');
     
