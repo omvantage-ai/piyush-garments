@@ -245,3 +245,58 @@ body {
     margin-bottom: 15px;
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
+/* 💰 8. DAY 8: TOP OFFER BANNER STYLE */
+.top-offer-banner {
+    background: linear-gradient(90deg, #ff0055, #ff7700);
+    color: #fff;
+    text-align: center;
+    padding: 12px 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(255, 0, 85, 0.3);
+}
+
+/* 📍 9. DAY 8: CONTACT & GOOGLE MAP LAYOUT */
+.contact-section {
+    margin-top: 60px;
+    padding: 20px 0;
+}
+
+.contact-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.contact-info-box {
+    flex: 1;
+    min-width: 280px;
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 16px;
+    border: 1px solid #1e293b;
+    text-align: left;
+}
+
+.contact-info-box p {
+    margin-bottom: 15px;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.map-embed-box {
+    flex: 1;
+    min-width: 280px;
+    border: 2px solid var(--primary-red);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+}
+
+@media (max-width: 768px) {
+    .contact-grid {
+        flex-direction: column;
+    }
+}
