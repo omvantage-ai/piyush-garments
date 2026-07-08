@@ -4,58 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Piyush Garments v2.0 | Premium Store</title>
-    
     <!-- 🔤 गूगल फॉन्ट (Poppins) -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!-- 💰 Day 8: नया आकर्षक ऑफर बैनर -->
+    <!-- 💰 नया आकर्षक ऑफर बैनर -->
     <div class="top-offer-banner">
         🔥 विशेष धमाका ऑफर: सीधे होलसेल रेट पर लेटेस्ट कलेक्शन उपलब्ध! 🔥
     </div>
 
-    <!-- 🌐 नेविगेशन बार (Menu Bar) -->
-        <!-- 🛍️ Day 9: ऑटोमैटिक लाइव मार्केट ट्रैकर बॉक्स -->
+    <!-- 🛍️ ऑटोमैटिक लाइव मार्केट ट्रैकर बॉक्स -->
     <div class="live-tracker-box">
         <span class="live-dot"></span> 
         <span id="live-status-text">लोड हो रहा है...</span>
     </div>
 
+    <!-- 🌐 नेविगेशन बार (हैमबर्गर मेनू के साथ) -->
     <header class="navbar">
         <div class="logo">Piyush <span>Garments</span></div>
+        
+        <!-- मोबाइल के लिए हैमबर्गर बटन -->
+        <div class="hamburger-menu" id="mobile-menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
         <nav>
-            <ul class="nav-links">
+            <ul class="nav-links" id="nav-links-container">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#categories">Categories</a></li>
+                <li><a href="#categories">Live Collection</a></li>
                 <li><a href="#markets">Markets</a></li>
+                <li><a href="#reviews">Reviews</a></li>
                 <li><a href="#order">Order</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- 👔 मुख्य बैनर (Hero Section) -->
+    <!-- 👔 मुख्य बैनर (Hero Section नए बटन के साथ) -->
     <section class="hero-section" id="home">
         <h1>Welcome to <span>Piyush Garments</span></h1>
         <p>माखन नगर का नंबर 1 क्लॉथिंग स्टोर - बेस्ट क्वालिटी, होलसेल रेट।</p>
+        <div class="hero-buttons">
+            <a href="#categories" class="btn btn-primary">🛒 Shop Now</a>
+            <a href="#order" class="btn btn-secondary">💬 WhatsApp Order</a>
+        </div>
     </section>
 
     <!-- 🎴 मुख्य कंटेनर -->
     <main class="container">
-            <!-- Categories Section -->  
-    <section id="categories">  
-        <h2 class="section-title">Shop Our <span>Live Collection</span></h2>  
         
-        <!-- 🔥 यह वह मुख्य बॉक्स है जहाँ फायरबेस का डेटा लोड होगा -->
-        <div class="product-grid" id="products-container">  
-            <div style="text-align: center; color: var(--neon-blue); padding: 20px; width: 100%;">
-                🔄 डेटाबेस से नए कपड़े लोड हो रहे हैं...
-            </div>
-        </div>  
-    </section>
-        
+        <!-- 🔥 Live Collection Section (Firebase से डेटा यहीं आएगा) -->
+        <section id="categories" class="market-section">    
+            <h2 class="section-title">Shop Our <span>Live Collection</span></h2>  
+            <div class="product-grid" id="products-container">  
+                <div style="text-align: center; color: var(--neon-blue); padding: 20px; width: 100%;">
+                    🔄 डेटाबेस से नए कपड़े लोड हो रहे हैं...
+                </div>
+            </div>  
+        </section>  
 
         <!-- 🛍️ साप्ताहिक बाज़ार का सेक्शन -->
         <section class="market-section" id="markets">
@@ -78,6 +88,23 @@
                         <tr><td><span class="day-badge">रविवार</span></td><td class="market-place">मोहासा इंडस्ट्रियल एरिया</td></tr>
                     </tbody>
                 </table>
+            </div>
+        </section>
+
+        <!-- ⭐ Customer Reviews Section -->
+        <section id="reviews" class="market-section">
+            <h2 class="section-title">Customer <span>Reviews</span></h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"कपड़ों का फैब्रिक और फिटिंग बहुत ही लाजवाब है, रेट भी माखन नगर में सबसे बेस्ट हैं।"</p>
+                    <h4>- राजेश दुबे (माखन नगर)</h4>
+                </div>
+                <div class="review-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"बाजार वाले दिन भी काउंटर पर वैरायटी मिल जाती है। जींस का कलेक्शन बहुत बढ़िया है।"</p>
+                    <h4>- अंकित चौरे (शाहगंज)</h4>
+                </div>
             </div>
         </section>
 
@@ -129,7 +156,7 @@
             </div>
         </section>
 
-        <!-- 📍 Day 8: दुकान का पता और गूगल मैप सेक्शन -->
+        <!-- 📍 दुकान का पता और गूगल मैप सेक्शन -->
         <section class="contact-section" id="contact">
             <h2 class="section-title">दुकान का <span>पता और लोकेशन</span></h2>
             <div class="contact-grid">
@@ -139,7 +166,6 @@
                     <p>📞 <strong>फ़ोन संपर्क:</strong> <a href="tel:+918878906237" style="color: var(--neon-blue); text-decoration: none;">+91 8878906237</a></p>
                 </div>
                 <div class="map-embed-box">
-                    <!-- लाइव बबई (माखन नगर) मैप आईफ्रेम -->
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14723.743194017683!2d77.8341648!3d22.7491901!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397dc9b646c0d8db%3A0x66f6fb6a34cd8ff!2sBabai%2C%20Madhya%20Pradesh!5e0!3m2!1shi!2sin!4v1710000000000!5m2!1shi!2sin" width="100%" height="250" style="border:0; border-radius: 12px;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
@@ -147,9 +173,22 @@
 
     </main>
 
-   <!-- फायरबेस की मुख्य लाइब्रेरीज़ -->
-<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
- <script src="js/script.js"></script>
+    <!-- 📋 Professional Footer Section -->
+    <footer class="store-footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Piyush Garments. All Rights Reserved.</p>
+            <div class="footer-links">
+                <a href="#home">About Us</a> | 
+                <a href="#contact">Privacy Policy</a> | 
+                <a href="#contact">Terms & Conditions</a>
+            </div>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 5px;">सरकारी अस्पताल के सामने, माखन नगर</p>
+        </div>
+    </footer>
+
+    <!-- फायरबेस की कॉम्पैट लाइब्रेरीज़ -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
