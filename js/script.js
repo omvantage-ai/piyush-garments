@@ -1,45 +1,43 @@
-  const firebaseConfig = {
-    apiKey: "AIzaSyDWUF7xHZ7-S-RKxxfYqwgc8JqZ10ryDlM",
-    authDomain: "piyush-garments-v2.firebaseapp.com",
-    projectId: "piyush-garments-v2",
-    storageBucket: "piyush-garments-v2.firebasestorage.app",
-    messagingSenderId: "831822579079",
-    appId: "1:831822579079:web:23cc902c56ee7eadb8bf22",
-    measurementId: "G-P8CVTRGN61"
-  };
+// 🔥 पीयूष गारमेंट्स - फायरबेस कॉन्फ़िगरेशन (v2.2 फिक्स्ड)
+const firebaseConfig = {
+  apiKey: "AIzaSyDWUF7xHZ7-S-RKxxfYqwg8JqZ10ryDLM", // आपकी असली चाबी यहाँ सेट कर दी है
+  authDomain: "piyush-garments-v2.firebaseapp.com",
+  projectId: "piyush-garments-v2",
+  storageBucket: "piyush-garments-v2.firebasestorage.app",
+  messagingSenderId: "831822579079",
+  appId: "1:831822579079:web:23cc902c56ee7eadb8bf22",
+  measurementId: "G-P8CVTRGN61"
+};
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-</script>
-// डेटाबेस से कपड़े (Products) लोड करने का फंक्शन
+// फायरबेस और डेटाबेस को सही फॉर्मेट में शुरू करना
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
+// 🛒 डेटाबेस से लाइव कपड़े (Products) लोड करने का फंक्शन
 function loadProductsFromFirebase() {
-  const container = document.getElementById('products-container'); // जहाँ कपड़े दिखने हैं
-  
-  if (!container) return; // अगर पेज पर कंटेनर नहीं है तो रुकें
+  const container = document.getElementById('products-container');
+  if (!container) return;
 
-  // फायरबेस के 'products' टेबल से डेटा लाना
   db.collection("products").get().then((querySnapshot) => {
-    container.innerHTML = ""; // पुराना स्टेटिक डेटा हटाएँ
+    // अगर डेटा आ जाता है, तो स्टेटिक "Shop By Categories" वाला पुराना ढांचा साफ करें
+    container.innerHTML = ""; 
 
     querySnapshot.forEach((doc) => {
       const product = doc.data();
       
-      // हर कपड़े का सुंदर कार्ड (HTML) बनाना
+      // डेटाबेस के डेटा से सुंदर कार्ड बनाना
       const productCard = `
         <div class="product-card">
-          <div class="discount-tag">${product.discountTag}</div>
-          <img src="${product.image}" alt="${product.name}">
+          <img src="${product.image}" alt="${product.name}" class="product-img">
+          <div class="discount-tag" style="background: var(--primary-red); color: white; padding: 4px 8px; border-radius: 6px; display: inline-block; margin-bottom: 10px; font-size: 0.8rem; font-weight: bold;">${product.discountTag}</div>
           <h3>${product.name}</h3>
-          <div class="price-section">
-            <span class="discount-price">₹${product.discountPrice}</span>
-            <span class="original-price">₹${product.originalPrice}</span>
+          <div class="price-section" style="margin: 10px 0;">
+            <span class="discount-price" style="color: var(--neon-blue); font-weight: bold; font-size: 1.2rem; margin-right: 10px;">₹${product.discountPrice}</span>
+            <span class="original-price" style="color: var(--text-muted); text-decoration: line-through; font-size: 0.95rem;">₹${product.originalPrice}</span>
           </div>
-          <button class="buy-btn">Order on WhatsApp</button>
+          <button class="order-btn" style="width: 100%; padding: 10px; background: var(--primary-red); color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;" onclick="sendDirectOrder('${product.name}')">💬 WhatsApp ऑर्डर</button>
         </div>
       `;
-      
-      // वेबसाइट पर कार्ड जोड़ना
       container.innerHTML += productCard;
     });
   }).catch((error) => {
@@ -47,74 +45,58 @@ function loadProductsFromFirebase() {
   });
 }
 
-// पेज लोड होते ही फंक्शन को चालू करें
-window.onload = loadProductsFromFirebase;
+// सीधे किसी प्रोडक्ट का व्हाट्सएप ऑर्डर भेजने के लिए
+function sendDirectOrder(productName) {
+  const message = `जय राम जी की! 🙏%0A*पीयूष गारमेंट्स (Piyush Garments)*%0A%0Aमुझे आपकी वेबसाइट पर यह प्रोडक्ट पसंद आया है और मैं इसे खरीदना चाहता हूँ:%0A📦 *प्रोडक्ट:* ${productName}`;
+  window.location.href = `https://wa.me/918878906237?text=${message}`;
+}
 
-    // पीयूष गारमेंट्स - डायरेक्ट ऑर्डर सिस्टम (v2.1 फिक्स्ड)
-document.addEventListener("DOMContentLoaded", function() {
-    const orderForm = document.getElementById('storeOrderForm');
-    
-    if (orderForm) {
-        orderForm.addEventListener('submit', function(event) {
-            event.preventDefault(); // फॉर्म को डिफ़ॉल्ट रीफ्रेश होने से रोकना
-            
-            // डेटा निकालना
-            const name = document.getElementById('custName').value.trim();
-            const product = document.getElementById('prodCat').value;
-            const size = document.getElementById('prodSize').value;
-            const market = document.getElementById('marketLoc').value;
-            
-            if (!name) {
-                alert("कृपया अपना नाम लिखें!");
-                return;
-            }
-            
-            // व्हाट्सएप टेक्स्ट मैसेज फॉर्मेटिंग
-            const message = `जय राम जी की! 🙏%0A*पीयूष गारमेंट्स (Piyush Garments) नया ऑर्डर*%0A%0A*ग्राहक का नाम:* ${name}%0A*कपड़ा प्रकार:* ${product}%0A*चुना गया साइज़:* ${size}%0A*डिलीवरी बाज़ार:* ${market}`;
-            
-            // व्हाट्सएप लिंक जनरेशन
-            const whatsappUrl = `https://wa.me/918878906237?text=${message}`;
-            
-            // सीधे ब्राउज़र विंडो को रीडायरेक्ट करना (मोबाइल और डेस्कटॉप दोनों के लिए बेस्ट)
-            window.location.href = whatsappUrl;
-        });
-    }
-});
-// 📅 DAY 9: ऑटोमैटिक मार्केट लाइव ट्रैकर लॉजिक
-document.addEventListener("DOMContentLoaded", function() {
-    const statusText = document.getElementById('live-status-text');
-    if (!statusText) return;
+// 📅 ऑटोमैटिक मार्केट लाइव ट्रैकर लॉजिक
+function loadLiveMarketTracker() {
+  const statusText = document.getElementById('live-status-text');
+  if (!statusText) return;
 
-    // वर्तमान दिन का नंबर निकालना (0 = रविवार, 1 = सोमवार, ..., 6 = शनिवार)
-    const currentDay = new Date().getDay();
-    let todayLocation = "";
+  const currentDay = new Date().getDay();  
+  let todayLocation = "";  
 
-    switch (currentDay) {
-        case 1:
-            todayLocation = "आज हमारी दुकान 📍 शाहगंज बाज़ार में लाइव है!";
-            break;
-        case 2:
-            todayLocation = "आज हमारी दुकान 📍 Babai (माखन नगर) मुख्य बाज़ार में लाइव है!";
-            break;
-        case 3:
-            todayLocation = "आज हमारी दुकान 📍 सांगाखेड़ा खुर्द में लाइव है!";
-            break;
-        case 4:
-            todayLocation = "आज हमारी दुकान 📍 सांगाखेड़ा कलां में लाइव है!";
-            break;
-        case 5:
-            todayLocation = "आज हमारी दुकान 📍 बकतरा / आरी में लाइव है!";
-            break;
-        case 6:
-            todayLocation = "आज हमारी दुकान 📍 गनेरा (Ganera) में लाइव है!";
-            break;
-        case 0:
-            todayLocation = "आज हमारी दुकान 📍 मोहासा इंडस्ट्रियल एरिया में लाइव है!";
-            break;
-        default:
-            todayLocation = "आज हमारी दुकान 📍 माखन नगर मुख्य दुकान पर उपलब्ध है!";
-    }
+  switch (currentDay) {  
+    case 1: todayLocation = "आज हमारी दुकान 📍 शाहगंज बाज़ार में लाइव है!"; break;  
+    case 2: todayLocation = "आज हमारी दुकान 📍 Babai (माखन नगर) मुख्य बाज़ार में लाइव है!"; break;  
+    case 3: todayLocation = "आज हमारी दुकान 📍 सांगाखेड़ा खुर्द में लाइव है!"; break;  
+    case 4: todayLocation = "आज हमारी दुकान 📍 सांगाखेड़ा कलां में लाइव है!"; break;  
+    case 5: todayLocation = "आज हमारी दुकान 📍 बकतरा / आरी में लाइव है!"; break;  
+    case 6: todayLocation = "आज हमारी दुकान 📍 गनेरा (Ganera) में लाइव है!"; break;  
+    case 0: todayLocation = "आज हमारी दुकान 📍 मोहासा इंडस्ट्रियल एरिया में लाइव है!"; break;  
+    default: todayLocation = "आज हमारी दुकान 📍 माखन नगर मुख्य दुकान पर उपलब्ध है!";  
+  }  
+  statusText.innerText = todayLocation;
+}
 
-    // वेबसाइट पर टेक्स्ट अपडेट करना
-    statusText.innerText = todayLocation;
+// फॉर्म सबमिशन सिस्टम
+function initOrderForm() {
+  const orderForm = document.getElementById('storeOrderForm');
+  if (!orderForm) return;
+
+  orderForm.addEventListener('submit', function(event) {  
+    event.preventDefault();  
+    const name = document.getElementById('custName').value.trim();  
+    const product = document.getElementById('prodCat').value;  
+    const size = document.getElementById('prodSize').value;  
+    const market = document.getElementById('marketLoc').value;  
+      
+    if (!name) {  
+        alert("कृपया अपना नाम लिखें!");  
+        return;  
+    }  
+      
+    const message = `जय राम जी की! 🙏%0A*पीयूष गारमेंट्स (Piyush Garments) नया ऑर्डर*%0A%0A*ग्राहक का नाम:* ${name}%0A*कपड़ा प्रकार:* ${product}%0A*चुना गया साइज़:* ${size}%0A*डिलीवरी बाज़ार:* ${market}`;  
+    window.location.href = `https://wa.me/918878906237?text=${message}`;  
+  });
+}
+
+// सभी चीजों को पेज लोड होते ही एक साथ शुरू करना
+window.addEventListener('DOMContentLoaded', () => {
+  loadLiveMarketTracker();
+  loadProductsFromFirebase();
+  initOrderForm();
 });
