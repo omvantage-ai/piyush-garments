@@ -28,3 +28,41 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 });
+// 📅 DAY 9: ऑटोमैटिक मार्केट लाइव ट्रैकर लॉजिक
+document.addEventListener("DOMContentLoaded", function() {
+    const statusText = document.getElementById('live-status-text');
+    if (!statusText) return;
+
+    // वर्तमान दिन का नंबर निकालना (0 = रविवार, 1 = सोमवार, ..., 6 = शनिवार)
+    const currentDay = new Date().getDay();
+    let todayLocation = "";
+
+    switch (currentDay) {
+        case 1:
+            todayLocation = "आज हमारी दुकान 📍 शाहगंज बाज़ार में लाइव है!";
+            break;
+        case 2:
+            todayLocation = "आज हमारी दुकान 📍 Babai (माखन नगर) मुख्य बाज़ार में लाइव है!";
+            break;
+        case 3:
+            todayLocation = "आज हमारी दुकान 📍 सांगाखेड़ा खुर्द में लाइव है!";
+            break;
+        case 4:
+            todayLocation = "आज हमारी दुकान 📍 सांगाखेड़ा कलां में लाइव है!";
+            break;
+        case 5:
+            todayLocation = "आज हमारी दुकान 📍 बकतरा / आरी में लाइव है!";
+            break;
+        case 6:
+            todayLocation = "आज हमारी दुकान 📍 गनेरा (Ganera) में लाइव है!";
+            break;
+        case 0:
+            todayLocation = "आज हमारी दुकान 📍 मोहासा इंडस्ट्रियल एरिया में लाइव है!";
+            break;
+        default:
+            todayLocation = "आज हमारी दुकान 📍 माखन नगर मुख्य दुकान पर उपलब्ध है!";
+    }
+
+    // वेबसाइट पर टेक्स्ट अपडेट करना
+    statusText.innerText = todayLocation;
+});
