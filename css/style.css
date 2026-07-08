@@ -1,331 +1,134 @@
-/* 🎨 GLOBAL VARIABLES */
-:root {
-    --bg-dark: #0b0f19;
-    --card-bg: #111827;
-    --primary-red: #ff0055;
-    --neon-blue: #00e5ff;
-    --text-main: #ffffff;
-    --text-muted: #94a3b8;
-    --transition-smooth: all 0.3s ease;
-}
-
-/* 🧹 RESET & PROFESSIONAL FONT INTEGRATION */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background-color: var(--bg-dark);
-    color: var(--text-main);
-    /* यहाँ हमने अपनी नई 'Poppins' फॉन्ट को लागू किया है */
-    font-family: 'Poppins', sans-serif;
-    padding-bottom: 60px;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* 🌐 STICKY NAVBAR DESIGN (बड़ी कंपनियों जैसा मेनू बार) */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 5%;
-    background-color: rgba(17, 24, 39, 0.95);
-    backdrop-filter: blur(10px); /* पीछे के हिस्से को धुंधला करने वाला प्रीमियम इफ़ेक्ट */
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    border-bottom: 1px solid rgba(255, 0, 85, 0.2);
-}
-
-.navbar .logo {
-    font-size: 1.3rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-}
-
-.navbar .logo span {
-    color: var(--primary-red);
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-}
-
-.nav-links li {
-    margin-left: 20px;
-}
-
-.nav-links li a {
-    color: var(--text-muted);
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 0.9rem;
-    transition: var(--transition-smooth);
-}
-
-.nav-links li a:hover {
-    color: var(--primary-red);
-}
-
-/* 👔 HERO SECTION */
-.hero-section {
-    text-align: center;
-    padding: 100px 20px;
-    background: linear-gradient(rgba(11, 15, 25, 0.8), var(--bg-dark));
-}
-
-.hero-section h1 {
-    font-size: 2.8rem;
-    font-weight: 700;
-    margin-bottom: 15px;
-}
-
-.hero-section h1 span {
-    color: var(--primary-red);
-}
-
-.hero-section p {
-    color: var(--text-muted);
-    font-size: 1.1rem;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-/* 👕 RESPONSIVE GRID LAYOUT */
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-    margin-top: 40px;
-}
-
-.product-card {
-    background: var(--card-bg);
-    border: 1px solid #1e293b;
-    border-radius: 16px;
-    padding: 25px 20px;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    transition: var(--transition-smooth);
-}
-
-.product-card:hover {
-    transform: translateY(-8px);
-    border-color: var(--primary-red);
-    box-shadow: 0 8px 20px rgba(255, 0, 85, 0.2);
-}
-
-.product-card .icon {
-    font-size: 3rem;
-    margin-bottom: 15px;
-    display: block;
-}
-
-.product-card h3 {
-    font-size: 1.3rem;
-    color: var(--text-main);
-    margin-bottom: 10px;
-}
-
-.product-card p {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-}
-
-/* 📱 MOBILE RESPONSIVENESS (नेविगेशन मेनू मोबाइल पर सही दिखे) */
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        gap: 10px;
-        padding: 15px 2%;
-    }
-    .nav-links li {
-        margin: 0 10px;
-    }
-    .hero-section h1 {
-        font-size: 2rem;
-    }
-}
-/* 🛍️ 5. DAY 4: WEEKLY MARKET TABLE DESIGN */
-.market-section {
-    margin-top: 60px;
-    padding: 20px 0;
-}
-
-.section-title {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 30px;
-    letter-spacing: 1px;
-}
-
-.section-title span {
-    color: var(--primary-red);
-}
-
-.table-container {
-    width: 100%;
-    overflow-x: auto; /* मोबाइल पर टेबल बाहर न भागे, इसके लिए स्क्रॉल */
-    border-radius: 16px;
-    border: 1px solid rgba(255, 0, 53, 0.15);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-
-.market-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: var(--card-bg);
-    text-align: left;
-}
-
-.market-table th, .market-table td {
-    padding: 18px 20px;
-    border-bottom: 1px solid #1e293b;
-}
-
-.market-table th {
-    background-color: rgba(255, 0, 85, 0.1);
-    color: var(--primary-red);
-    font-weight: 600;
-    font-size: 1rem;
-    border-bottom: 2px solid var(--primary-red);
-}
-
-.market-table tr:last-child td {
-    border-bottom: none;
-}
-
-.market-table tr:hover {
-    background: rgba(0, 229, 255, 0.03); /* नियॉन ब्लू टच होवर पर */
-    transition: var(--transition-smooth);
-}
-
-/* बैज (Badges) की डिजाइन */
-.day-badge {
-    display: inline-block;
-    background: #1e293b;
-    padding: 6px 14px;
-    border-radius: 8px;
-    font-size: 0.85rem;
-    color: var(--neon-blue);
-    font-weight: 600;
-    border: 1px solid rgba(0, 229, 255, 0.2);
-}
-
-.day-badge.day-special {
-    color: var(--primary-red);
-    border-color: rgba(255, 0, 85, 0.3);
-    background: rgba(255, 0, 85, 0.05);
-}
-
-.market-place {
-    font-size: 1rem;
-    color: var(--text-main);
-    font-weight: 400;
-}
-
-.market-place.highlight {
-    font-weight: 600;
-    color: var(--neon-blue);
-}
-/* 🖼️ 7. DAY 6: PRODUCT IMAGE STYLE */
-.product-img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover; /* फोटो को बिना खींचे या पिचकाए बॉक्स में फिट करने के लिए */
-    border-radius: 12px;
-    margin-bottom: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-}
-/* 💰 8. DAY 8: TOP OFFER BANNER STYLE */
-.top-offer-banner {
-    background: linear-gradient(90deg, #ff0055, #ff7700);
-    color: #fff;
-    text-align: center;
-    padding: 12px 10px;
-    font-weight: 600;
-    font-size: 0.95rem;
-    letter-spacing: 0.5px;
-    box-shadow: 0 4px 15px rgba(255, 0, 85, 0.3);
-}
-
-/* 📍 9. DAY 8: CONTACT & GOOGLE MAP LAYOUT */
-.contact-section {
-    margin-top: 60px;
-    padding: 20px 0;
-}
-
-.contact-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 25px;
-    margin-top: 30px;
-}
-
-.contact-info-box {
-    flex: 1;
-    min-width: 280px;
-    background: var(--card-bg);
-    padding: 25px;
-    border-radius: 16px;
-    border: 1px solid #1e293b;
-    text-align: left;
-}
-
-.contact-info-box p {
-    margin-bottom: 15px;
-    font-size: 1rem;
-    line-height: 1.6;
-}
-
-.map-embed-box {
-    flex: 1;
-    min-width: 280px;
-    border: 2px solid var(--primary-red);
-    border-radius: 14px;
-    overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
-}
-
-@media (max-width: 768px) {
-    .contact-grid {
-        flex-direction: column;
-    }
-}
-/* 🟢 10. DAY 9: LIVE MARKET TRACKER STYLE */
-.live-tracker-box {
-    background-color: #1e293b;
-    color: #ffffff;
-    text-align: center;
-    padding: 8px 10px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    border-bottom: 1px solid rgba(0, 229, 255, 0.2);
+/* 🔘 HERO BUTTONS STYLE */
+.hero-buttons {
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 8px;
+    gap: 15px;
+    margin-top: 25px;
+}
+.btn {
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition-smooth);
+    font-size: 0.95rem;
+}
+.btn-primary {
+    background: var(--primary-red);
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 0, 85, 0.3);
+}
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 0, 85, 0.5);
+}
+.btn-secondary {
+    background: transparent;
+    color: var(--neon-blue);
+    border: 2px solid var(--neon-blue);
+}
+.btn-secondary:hover {
+    background: rgba(0, 229, 255, 0.1);
+    transform: translateY(-3px);
 }
 
-/* धड़कता हुआ हरा निशान (Blinking Live Dot) */
-.live-dot {
-    width: 10px;
-    height: 10px;
-    background-color: #00e5ff; /* नियॉन ब्लू/ग्रीन */
-    border-radius: 50%;
-    box-shadow: 0 0 8px #00e5ff;
-    animation: blinkDot 1.2s infinite alternate;
+/* ⭐ REVIEWS DESIGN */
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+.review-card {
+    background: var(--card-bg);
+    border: 1px solid #1e293b;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: left;
+}
+.review-card .stars {
+    color: #ffb700;
+    margin-bottom: 10px;
+}
+.review-card p {
+    font-style: italic;
+    color: var(--text-main);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+.review-card h4 {
+    margin-top: 15px;
+    color: var(--neon-blue);
+    font-size: 0.9rem;
 }
 
-@keyframes blinkDot {
-    0% { opacity: 0.4; transform: scale(0.9); }
-    100% { opacity: 1; transform: scale(1.1); }
+/* 📋 FOOTER DESIGN */
+.store-footer {
+    background-color: rgba(17, 24, 39, 0.98);
+    border-top: 1px solid rgba(255, 0, 85, 0.2);
+    padding: 30px 20px;
+    text-align: center;
+    margin-top: 60px;
+}
+.footer-content p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+.footer-links {
+    margin: 15px 0;
+}
+.footer-links a {
+    color: var(--neon-blue);
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 0.9rem;
+}
+
+/* 📱 MOBILE HAMBURGER MENU SYSTEM */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+.hamburger-menu span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+    transition: var(--transition-smooth);
+}
+
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: flex;
+    }
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgba(17, 24, 39, 0.98);
+        border-bottom: 1px solid rgba(255, 0, 85, 0.2);
+        padding: 20px 0;
+        text-align: center;
+    }
+    .nav-links.active {
+        display: flex;
+    }
+    .nav-links li {
+        margin: 15px 0;
+    }
+    /* हैमबर्गर एनिमेशन क्रॉस बनाने के लिए */
+    .hamburger-menu.open span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 6px);
+    }
+    .hamburger-menu.open span:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger-menu.open span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -6px);
+    }
 }
