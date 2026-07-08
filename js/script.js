@@ -12,6 +12,44 @@
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
 </script>
+// डेटाबेस से कपड़े (Products) लोड करने का फंक्शन
+function loadProductsFromFirebase() {
+  const container = document.getElementById('products-container'); // जहाँ कपड़े दिखने हैं
+  
+  if (!container) return; // अगर पेज पर कंटेनर नहीं है तो रुकें
+
+  // फायरबेस के 'products' टेबल से डेटा लाना
+  db.collection("products").get().then((querySnapshot) => {
+    container.innerHTML = ""; // पुराना स्टेटिक डेटा हटाएँ
+
+    querySnapshot.forEach((doc) => {
+      const product = doc.data();
+      
+      // हर कपड़े का सुंदर कार्ड (HTML) बनाना
+      const productCard = `
+        <div class="product-card">
+          <div class="discount-tag">${product.discountTag}</div>
+          <img src="${product.image}" alt="${product.name}">
+          <h3>${product.name}</h3>
+          <div class="price-section">
+            <span class="discount-price">₹${product.discountPrice}</span>
+            <span class="original-price">₹${product.originalPrice}</span>
+          </div>
+          <button class="buy-btn">Order on WhatsApp</button>
+        </div>
+      `;
+      
+      // वेबसाइट पर कार्ड जोड़ना
+      container.innerHTML += productCard;
+    });
+  }).catch((error) => {
+    console.log("डेटा लोड करने में गड़बड़ हुई: ", error);
+  });
+}
+
+// पेज लोड होते ही फंक्शन को चालू करें
+window.onload = loadProductsFromFirebase;
+
     // पीयूष गारमेंट्स - डायरेक्ट ऑर्डर सिस्टम (v2.1 फिक्स्ड)
 document.addEventListener("DOMContentLoaded", function() {
     const orderForm = document.getElementById('storeOrderForm');
