@@ -6,12 +6,12 @@
     <title>Piyush Garments v2.0 | Premium Store</title>
     <!-- 🔤 गूगल फॉन्ट (Poppins) -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- 🎨 लोकल सीएसएस पाथ फिक्स -->
     <link rel="stylesheet" href="./css/style.css">
-    
 </head>
 <body>
 
-    <!-- 💰 नया आकर्षक ऑफर बैनर -->
+    <!-- 💰 ऑफर बैनर -->
     <div class="top-offer-banner">
         🔥 विशेष धमाका ऑफर: सीधे होलसेल रेट पर लेटेस्ट कलेक्शन उपलब्ध! 🔥
     </div>
@@ -22,19 +22,20 @@
         <span id="live-status-text">लोड हो रहा है...</span>
     </div>
 
-    <!-- 🌐 नेविगेशन बार (हैमबर्गर मेनू के साथ) -->
+    <!-- 🌐 नेविगेशन बार (आपके बताए अनुसार फिक्स्ड IDs के साथ) -->
     <header class="navbar">
         <div class="logo">Piyush <span>Garments</span></div>
         
-        <!-- मोबाइल के लिए हैमबर्गर बटन -->
-        <div class="hamburger-menu" id="mobile-menu-toggle">
+        <!-- 📱 1. हैमबर्गर बटन (id="hamburgerMenu") -->
+        <div class="hamburger-menu" id="hamburgerMenu">
             <span></span>
             <span></span>
             <span></span>
         </div>
 
         <nav>
-            <ul class="nav-links" id="nav-links-container">
+            <!-- 📱 2. नेविगेशन लिंक्स (id="navLinks") -->
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#categories">Live Collection</a></li>
                 <li><a href="#markets">Markets</a></li>
@@ -45,7 +46,7 @@
         </nav>
     </header>
 
-    <!-- 👔 मुख्य बैनर (Hero Section नए बटन के साथ) -->
+    <!-- 👔 मुख्य बैनर (Hero Section) -->
     <section class="hero-section" id="home">
         <h1>Welcome to <span>Piyush Garments</span></h1>
         <p>माखन नगर का नंबर 1 क्लॉथिंग स्टोर - बेस्ट क्वालिटी, होलसेल रेट।</p>
@@ -68,7 +69,7 @@
             </div>  
         </section>  
 
-        <!-- 🛍️ साप्ताहिक बाज़ार का सेक्शन -->
+        <!-- 🛍️ साप्ताहिक बाज़ार का शेड्यूल -->
         <section class="market-section" id="markets">
             <h2 class="section-title">साप्ताहिक बाज़ार <span>का शेड्यूल</span></h2>
             <div class="table-container">
