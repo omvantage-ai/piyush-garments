@@ -4,12 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Piyush Garments v2.0 | Premium Store</title>
-    <!-- 🔤 गूगल फॉन्ट (Poppins) -->
+    <!-- 🔤 गूगल फॉन्ट -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- 🎨 डायरेक्ट डिजाइन कोड (Internal CSS जो तुरंत काम करेगी) -->
+    <!-- 🎨 प्रीमियम ब्लैक-नियॉन डायरेक्ट डिज़ाइन -->
     <style>
-        /* 🎨 GLOBAL VARIABLES */  
         :root {  
             --bg-dark: #0b0f19;  
             --card-bg: #111827;  
@@ -39,14 +38,12 @@
             padding: 20px;
         }
 
-        /* 🌐 STICKY NAVBAR DESIGN */
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 15px 5%;
-            background-color: rgba(17, 24, 39, 0.95);
-            backdrop-filter: blur(10px);
+            background-color: #111827;
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -85,15 +82,14 @@
             color: var(--primary-red);
         }
 
-        /* 👔 HERO SECTION */
         .hero-section {
             text-align: center;
-            padding: 100px 20px;
+            padding: 80px 20px;
             background: linear-gradient(rgba(11, 15, 25, 0.8), var(--bg-dark));
         }
 
         .hero-section h1 {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 15px;
             color: var(--text-main);
@@ -107,10 +103,9 @@
             color: var(--text-muted);
             font-size: 1.1rem;
             max-width: 600px;
-            margin: 0 auto;
+            margin: 15px auto;
         }
 
-        /* 🔘 HERO BUTTONS STYLE */
         .hero-buttons {
             display: flex;
             justify-content: center;
@@ -124,27 +119,19 @@
             text-decoration: none;
             transition: var(--transition-smooth);
             font-size: 0.95rem;
+            display: inline-block;
         }
         .btn-primary {
             background: var(--primary-red);
             color: white;
             box-shadow: 0 4px 15px rgba(255, 0, 85, 0.3);
         }
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(255, 0, 85, 0.5);
-        }
         .btn-secondary {
             background: transparent;
             color: var(--neon-blue);
             border: 2px solid var(--neon-blue);
         }
-        .btn-secondary:hover {
-            background: rgba(0, 229, 255, 0.1);
-            transform: translateY(-3px);
-        }
 
-        /* 👕 RESPONSIVE GRID LAYOUT */
         .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -160,13 +147,6 @@
             text-align: center;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             transition: var(--transition-smooth);
-            position: relative;
-        }
-
-        .product-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--primary-red);
-            box-shadow: 0 8px 20px rgba(255, 0, 85, 0.2);
         }
 
         .product-img {
@@ -175,7 +155,6 @@
             object-fit: cover;
             border-radius: 12px;
             margin-bottom: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .discount-tag {
@@ -187,16 +166,6 @@
             margin-bottom: 10px;
             font-size: 0.8rem;
             font-weight: bold;
-        }
-
-        .product-card h3 {
-            font-size: 1.3rem;
-            color: var(--text-main);
-            margin-bottom: 10px;
-        }
-
-        .price-section {
-            margin: 10px 0;
         }
 
         .discount-price {
@@ -214,21 +183,16 @@
 
         .buy-btn {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             background: var(--primary-red);
             color: white;
             border: none;
             border-radius: 8px;
             font-weight: 600;
             cursor: pointer;
-            transition: var(--transition-smooth);
+            margin-top: 15px;
         }
 
-        .buy-btn:hover {
-            background: #ff3377;
-        }
-
-        /* 🛍️ MARKET SECTION & TABLE */
         .market-section {
             margin-top: 60px;
             padding: 20px 0;
@@ -238,7 +202,6 @@
             text-align: center;
             font-size: 2rem;
             margin-bottom: 30px;
-            letter-spacing: 1px;
             color: var(--text-main);
         }
 
@@ -251,7 +214,6 @@
             overflow-x: auto;
             border-radius: 16px;
             border: 1px solid rgba(255, 0, 53, 0.15);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
         .market-table {
@@ -270,9 +232,6 @@
         .market-table th {
             background-color: rgba(255, 0, 85, 0.1);
             color: var(--primary-red);
-            font-weight: 600;
-            font-size: 1rem;
-            border-bottom: 2px solid var(--primary-red);
         }
 
         .day-badge {
@@ -283,21 +242,12 @@
             font-size: 0.85rem;
             color: var(--neon-blue);
             font-weight: 600;
-            border: 1px solid rgba(0, 229, 255, 0.2);
         }
 
         .day-badge.day-special {
             color: var(--primary-red);
-            border-color: rgba(255, 0, 85, 0.3);
-            background: rgba(255, 0, 85, 0.05);
         }
 
-        .market-place.highlight {
-            font-weight: 600;
-            color: var(--neon-blue);
-        }
-
-        /* ⭐ REVIEWS DESIGN */
         .reviews-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -309,41 +259,26 @@
             border: 1px solid #1e293b;
             border-radius: 12px;
             padding: 20px;
-            text-align: left;
         }
         .review-card .stars {
             color: #ffb700;
             margin-bottom: 10px;
         }
-        .review-card p {
-            font-style: italic;
-            color: var(--text-main);
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-        .review-card h4 {
-            margin-top: 15px;
-            color: var(--neon-blue);
-            font-size: 0.9rem;
-        }
 
-        /* 💰 BANNER & TRACKER */
         .top-offer-banner {
             background: linear-gradient(90deg, #ff0055, #ff7700);
             color: #fff;
             text-align: center;
             padding: 12px 10px;
             font-weight: 600;
-            font-size: 0.95rem;
         }
 
         .live-tracker-box {
             background-color: #1e293b;
             color: #ffffff;
             text-align: center;
-            padding: 8px 10px;
+            padding: 10px;
             font-size: 0.9rem;
-            font-weight: 500;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -355,49 +290,37 @@
             height: 10px;
             background-color: #00e5ff;
             border-radius: 50%;
-            box-shadow: 0 0 8px #00e5ff;
             animation: blinkDot 1.2s infinite alternate;
         }
 
         @keyframes blinkDot {
-            0% { opacity: 0.4; transform: scale(0.9); }
-            100% { opacity: 1; transform: scale(1.1); }
+            0% { opacity: 0.4; }
+            100% { opacity: 1; }
         }
 
-        /* 📋 FOOTER DESIGN */
         .store-footer {
-            background-color: rgba(17, 24, 39, 0.98);
+            background-color: #111827;
             border-top: 1px solid rgba(255, 0, 85, 0.2);
             padding: 30px 20px;
             text-align: center;
             margin-top: 60px;
         }
-        .store-footer p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-        .footer-links a {
-            color: var(--neon-blue);
-            text-decoration: none;
-            margin: 0 10px;
-        }
 
-        /* 📦 FORM DESIGN */
         .order-form-container {
             background: var(--card-bg);
-            padding: 30px;
+            padding: 25px;
             border-radius: 16px;
             border: 1px solid #1e293b;
             max-width: 600px;
             margin: 0 auto;
         }
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             text-align: left;
         }
         .form-group label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
             color: var(--text-muted);
         }
         .form-group input, .form-group select {
@@ -419,7 +342,6 @@
             cursor: pointer;
         }
 
-        /* 📍 CONTACT GRID */
         .contact-grid {
             display: flex;
             flex-wrap: wrap;
@@ -432,7 +354,6 @@
             background: var(--card-bg);
             padding: 25px;
             border-radius: 16px;
-            border: 1px solid #1e293b;
         }
         .map-embed-box {
             flex: 1;
@@ -442,7 +363,6 @@
             overflow: hidden;
         }
 
-        /* 📱 MOBILE HAMBURGER MENU */
         .hamburger-menu {
             display: none;
             flex-direction: column;
@@ -453,8 +373,6 @@
             width: 25px;
             height: 3px;
             background-color: white;
-            border-radius: 2px;
-            transition: var(--transition-smooth);
         }
 
         @media (max-width: 768px) {
@@ -466,36 +384,28 @@
                 top: 100%;
                 left: 0;
                 width: 100%;
-                background-color: rgba(17, 24, 39, 0.98);
+                background-color: #111827;
                 padding: 20px 0;
-                border-bottom: 1px solid rgba(255, 0, 85, 0.2);
             }
             .nav-links.active { display: flex; }
-            .nav-links li { margin: 15px 0; }
-            .hero-section h1 { font-size: 2rem; }
-            .contact-grid { flex-direction: column; }
+            .nav-links li { margin: 10px 0; }
         }
     </style>
 </head>
-
 <body>
 
-    <!-- 💰 ऑफर बैनर -->
     <div class="top-offer-banner">
         🔥 विशेष धमाका ऑफर: सीधे होलसेल रेट पर लेटेस्ट कलेक्शन उपलब्ध! 🔥
     </div>
 
-    <!-- 🛍️ ऑटोमैटिक लाइव मार्केट ट्रैकर बॉक्स -->
     <div class="live-tracker-box">
         <span class="live-dot"></span> 
         <span id="live-status-text">लोड हो रहा है...</span>
     </div>
 
-    <!-- 🌐 नेविगेशन बार (हैमबर्गर मेनू और सही आईडी के साथ) -->
     <header class="navbar">
         <div class="logo">Piyush <span>Garments</span></div>
         
-        <!-- 📱 1. हैमबर्गर बटन जोड़ दिया गया है -->
         <div class="hamburger-menu" id="hamburgerMenu">
             <span></span>
             <span></span>
@@ -503,7 +413,6 @@
         </div>
 
         <nav>
-            <!-- 📱 2. नेविगेशन लिंक्स में id="navLinks" सेट कर दी है -->
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#categories">Live Collection</a></li>
@@ -515,7 +424,6 @@
         </nav>
     </header>
 
-    <!-- 👔 मुख्य बैनर (Hero Section नए बटन के साथ) -->
     <section class="hero-section" id="home">
         <h1>Welcome to <span>Piyush Garments</span></h1>
         <p>माखन नगर का नंबर 1 क्लॉथिंग स्टोर - बेस्ट क्वालिटी, होलसेल रेट।</p>
@@ -525,10 +433,8 @@
         </div>
     </section>
 
-    <!-- 🎴 मुख्य कंटेनर -->
     <main class="container">
         
-        <!-- 🔥 Live Collection Section (Firebase से डेटा यहीं आएगा) -->
         <section id="categories" class="market-section">    
             <h2 class="section-title">Shop Our <span>Live Collection</span></h2>  
             <div class="product-grid" id="products-container">  
@@ -538,7 +444,6 @@
             </div>  
         </section>  
 
-        <!-- 🛍️ साप्ताहिक बाज़ार का शेड्यूल -->
         <section class="market-section" id="markets">
             <h2 class="section-title">साप्ताहिक बाज़ार <span>का शेड्यूल</span></h2>
             <div class="table-container">
@@ -556,13 +461,12 @@
                         <tr><td><span class="day-badge">गुरुवार</span></td><td class="market-place">सांगाखेड़ा कलां</td></tr>
                         <tr><td><span class="day-badge">शुक्रवार</span></td><td class="market-place">बकतरा / आरी</td></tr>
                         <tr><td><span class="day-badge">शनिवार</span></td><td class="market-place">गनेरा (Ganera)</td></tr>
-                        <tr><td><span class="day-badge">रविवार</span></td><td class="market-place">मोहासा इंडस्ट्रियल एरिया</td></tr>
+                        <tr><td><span class="day-badge">रविवार</span></td><td class="market-place">моहासा इंडस्ट्रियल एरिया</td></tr>
                     </tbody>
                 </table>
             </div>
         </section>
 
-        <!-- ⭐ Customer Reviews Section -->
         <section id="reviews" class="market-section">
             <h2 class="section-title">Customer <span>Reviews</span></h2>
             <div class="reviews-grid">
@@ -579,7 +483,6 @@
             </div>
         </section>
 
-        <!-- 📦 व्हाट्सएप ऑर्डर फॉर्म -->
         <section class="order-section" id="order">
             <h2 class="section-title">Direct <span>WhatsApp Order</span></h2>
             <div class="order-form-container">
@@ -627,7 +530,6 @@
             </div>
         </section>
 
-        <!-- 📍 दुकान का पता और गूगल मैप सेक्शन -->
         <section class="contact-section" id="contact">
             <h2 class="section-title">दुकान का <span>पता और लोकेशन</span></h2>
             <div class="contact-grid">
@@ -644,7 +546,6 @@
 
     </main>
 
-    <!-- 📋 Professional Footer Section -->
     <footer class="store-footer">
         <div class="footer-content">
             <p>&copy; 2026 Piyush Garments. All Rights Reserved.</p>
@@ -657,7 +558,7 @@
         </div>
     </footer>
 
-    <!-- 🔥 बिल्कुल सही Firebase 9.23.0 कॉम्पैट लाइब्रेरीज़ जो कोड को स्थिर बनाएंगी -->
+    <!-- 🚀 Firebase 9.23.0 कॉम्पैट लाइब्रेरीज़ (Stability फिक्स्ड) -->
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
     <script src="js/script.js"></script>
