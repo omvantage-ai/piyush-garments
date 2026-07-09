@@ -7,7 +7,7 @@
     <!-- 🔤 गूगल फॉन्ट -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- 🎨 प्रीमियम ब्लैक-नियॉन डायरेक्ट डिज़ाइन -->
+    <!-- 🎨 प्रीमियम ब्लैक-नियॉन डायरेक्ट डिज़ाइन (Internal CSS फिक्स्ड) -->
     <style>
         :root {  
             --bg-dark: #0b0f19;  
@@ -109,19 +109,22 @@
         .hero-buttons {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            align-items: center;
+            gap: 12px;
             margin-top: 25px;
-        <a href="tel:+918878906237" class="btn btn-call">📞 Call Now</a>
+            flex-wrap: wrap;
         }
-        
         .btn {
-            padding: 12px 24px;
+            padding: 12px 20px;
             border-radius: 8px;
             font-weight: 600;
             text-decoration: none;
             transition: var(--transition-smooth);
-            font-size: 0.95rem;
-            display: inline-block;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
         .btn-primary {
             background: var(--primary-red);
@@ -132,6 +135,35 @@
             background: transparent;
             color: var(--neon-blue);
             border: 2px solid var(--neon-blue);
+        }
+        .btn-call {
+            background: #0088ff !important;
+            color: white !important;
+            box-shadow: 0 4px 15px rgba(0, 136, 255, 0.3);
+        }
+
+        /* 💬 फ्लोटिंग व्हाट्सएप बटन स्टाइल */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            line-height: 60px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 9999;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+            display: block;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
         }
 
         .product-grid {
@@ -148,7 +180,6 @@
             padding: 25px 20px;
             text-align: center;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            transition: var(--transition-smooth);
         }
 
         .product-img {
@@ -388,37 +419,11 @@
                 width: 100%;
                 background-color: #111827;
                 padding: 20px 0;
+                z-index: 1000;
             }
             .nav-links.active { display: flex; }
             .nav-links li { margin: 10px 0; }
-        }/* 💬 फ़्लोटिंग व्हाट्सएप बटन */
-.whatsapp-float {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    background-color: #25d366;
-    color: white;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    text-align: center;
-    font-size: 30px;
-    line-height: 60px;
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-    z-index: 9999;
-    transition: transform 0.3s ease;
-}
-
-.whatsapp-float:hover {
-    transform: scale(1.1);
-}
-
-/* 📞 कॉल नाउ बटन स्टाइल */
-.btn-call {
-    background: #0088ff !important;
-    color: white !important;
-}
-        
+        }
     </style>
 </head>
 <body>
@@ -459,6 +464,8 @@
         <div class="hero-buttons">
             <a href="#categories" class="btn btn-primary">🛒 Shop Now</a>
             <a href="#order" class="btn btn-secondary">💬 WhatsApp Order</a>
+            <!-- 📞 नया कॉल बटन यहाँ जोड़ दिया गया है -->
+            <a href="tel:+918878906237" class="btn btn-call">📞 Call Now</a>
         </div>
     </section>
 
@@ -490,7 +497,7 @@
                         <tr><td><span class="day-badge">गुरुवार</span></td><td class="market-place">सांगाखेड़ा कलां</td></tr>
                         <tr><td><span class="day-badge">शुक्रवार</span></td><td class="market-place">बकतरा / आरी</td></tr>
                         <tr><td><span class="day-badge">शनिवार</span></td><td class="market-place">गनेरा (Ganera)</td></tr>
-                        <tr><td><span class="day-badge">रविवार</span></td><td class="market-place">моहासा इंडस्ट्रियल एरिया</td></tr>
+                        <tr><td><span class="day-badge">रविवार</span></td><td class="market-place">मोहासा इंडस्ट्रियल एरिया</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -559,7 +566,6 @@
             </div>
         </section>
 
-                <!-- 📍 दुकान का पता और गूगल मैप सेक्शन -->
         <section class="contact-section" id="contact">
             <h2 class="section-title">दुकान का <span>पता और लोकेशन</span></h2>
             <div class="contact-grid">
@@ -569,7 +575,6 @@
                     <p>📞 <strong>फ़ोन संपर्क:</strong> <a href="tel:+918878906237" style="color: var(--neon-blue); text-decoration: none;">+91 8878906237</a></p>
                 </div>
                 <div class="map-embed-box">
-                    <!-- पूरा और सही गूगल मैप iframe -->
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14723.743194017683!2d77.8341648!3d22.7491901!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397dc9b646c0d8db%3A0x66f6fb6a34cd8ff!2sBabai%2C%20Madhya%20Pradesh!5e0!3m2!1shi!2sin!4v1710000000000!5m2!1shi!2sin" width="100%" height="250" style="border:0; border-radius: 12px;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
@@ -577,7 +582,6 @@
 
     </main>
 
-    <!-- 📋 Professional Footer Section -->
     <footer class="store-footer">
         <div class="footer-content">
             <p>&copy; 2026 Piyush Garments. All Rights Reserved.</p>
@@ -590,15 +594,12 @@
         </div>
     </footer>
 
+    <!-- 💬 फ़्लोटिंग व्हाट्सएप बटन (हमेशा स्क्रीन पर चिपका रहेगा) -->
+    <a href="https://wa.me/918878906237?text=नमस्ते ओमप्रकाश भाई, मुझे पीयूष गारमेंट्स से कपड़ों का ऑर्डर देना है!" class="whatsapp-float" target="_blank">💬</a>
+
     <!-- 🚀 Firebase 9.23.0 कॉम्पैट लाइब्रेरीज़ (Stability फिक्स्ड) -->
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
     <script src="js/script.js"></script>
-    <!-- फ़्लोटिंग व्हाट्सएप बटन -->
-<a href="https://wa.me/918878906237?text=नमस्ते, मुझे पीयूष गारमेंट्स से ऑर्डर देना है!" class="whatsapp-float" target="_blank">
-    💬
-</a>
-
 </body>
 </html>
-
