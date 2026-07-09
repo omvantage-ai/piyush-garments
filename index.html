@@ -6,8 +6,8 @@
     <title>Piyush Garments v2.0 | Premium Store</title>
     <!-- 🔤 गूगल फॉन्ट (Poppins) -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- 🎨 लोकल सीएसएस पाथ फिक्स -->
-<link rel="stylesheet" href="css/style.css?v=2.5"> 
+    <!-- 🎨 सीएसएस पाथ (गिटहब फ़ोल्डर के अनुसार बिल्कुल फिक्स) -->
+    <link rel="stylesheet" href="css/style.css?v=3.0">
 </head>
 <body>
 
@@ -22,11 +22,11 @@
         <span id="live-status-text">लोड हो रहा है...</span>
     </div>
 
-    <!-- 🌐 नेविगेशन बार (आपके बताए अनुसार फिक्स्ड IDs के साथ) -->
+    <!-- 🌐 नेविगेशन बार (हैमबर्गर मेनू और सही आईडी के साथ) -->
     <header class="navbar">
         <div class="logo">Piyush <span>Garments</span></div>
         
-        <!-- 📱 1. हैमबर्गर बटन (id="hamburgerMenu") -->
+        <!-- 📱 1. हैमबर्गर बटन जोड़ दिया गया है -->
         <div class="hamburger-menu" id="hamburgerMenu">
             <span></span>
             <span></span>
@@ -34,7 +34,7 @@
         </div>
 
         <nav>
-            <!-- 📱 2. नेविगेशन लिंक्स (id="navLinks") -->
+            <!-- 📱 2. नेविगेशन लिंक्स में id="navLinks" सेट कर दी है -->
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#categories">Live Collection</a></li>
@@ -46,7 +46,7 @@
         </nav>
     </header>
 
-    <!-- 👔 मुख्य बैनर (Hero Section) -->
+    <!-- 👔 मुख्य बैनर (Hero Section नए बटन के साथ) -->
     <section class="hero-section" id="home">
         <h1>Welcome to <span>Piyush Garments</span></h1>
         <p>माखन नगर का नंबर 1 क्लॉथिंग स्टोर - बेस्ट क्वालिटी, होलसेल रेट।</p>
@@ -188,9 +188,9 @@
         </div>
     </footer>
 
-    <!-- फायरबेस की कॉम्पैट लाइब्रेरीज़ -->
-    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+    <!-- 🔥 बिल्कुल सही Firebase 9.23.0 कॉम्पैट लाइब्रेरीज़ जो कोड को स्थिर बनाएंगी -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
